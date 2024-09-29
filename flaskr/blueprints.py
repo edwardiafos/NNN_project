@@ -28,6 +28,7 @@ def index(class_type):
 
             f = request.files['file']
             filename = secure_filename(f.filename)
+            print(current_app.config['UPLOAD_FOLDER'])
             f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
 
             label = get_prediction(model_type=class_type,\
