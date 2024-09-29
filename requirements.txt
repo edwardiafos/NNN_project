@@ -16,4 +16,5 @@ sympy==1.13.2
 torch==2.4.1
 torchvision==0.19.1
 typing_extensions==4.12.2
+waitress==3.0.0
 Werkzeug==3.0.4
