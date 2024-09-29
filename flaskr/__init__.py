@@ -33,7 +33,7 @@ def create_app(test_config=None):
         return render_template("index.html")
     
 
-    from . import blueprints # used to be 'from . import blueprints'
+    from flaskr import blueprints # used to be 'from . import blueprints'
     app.register_blueprint(blueprints.prediction_bp)
     app.register_blueprint(blueprints.upload_bp)
 
