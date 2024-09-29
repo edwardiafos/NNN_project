@@ -1,0 +1,18 @@
+html {
+    text-align: center;
+    color: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html.flower {
+    background:rgb(233, 128, 145);
+}
+
+html.mushroom {
+    background:rgb(161, 104, 30);
+}
+
+h1, div {
+    margin: 3%;
+    margin-bottom: 4%;
+}

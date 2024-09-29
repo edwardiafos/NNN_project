@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="{{classification_type}}" lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='upload.css')}}">
+        <title>{% block title %}{% endblock %} - Nature's Neural Networks</title>
+    </head>
+
+
+    <body>
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+
+
+        <main>
+            <div class="form">
+                <form method="POST" enctype="multipart/form-data">
+                    <label for="file">{% block upload_label %}{% endblock %}</label>
+                    <input name="file" type="file" required>
+                    <input type="submit">
+                </form>
+            </div>
+
+            <div class="class-list">
+                <h3>Classes:</h3>
+                {% block classes %}{% endblock %}
+            </div>
+        </main>
+
+
+    </body>
+</html>
