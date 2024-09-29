@@ -3,6 +3,7 @@ from werkzeug.utils import secure_filename
 import os
 import glob
 from model import get_prediction
+from pathlib import Path
 
 
 prediction_bp = Blueprint(name='prediction', 
@@ -28,7 +29,7 @@ def index(class_type):
 
             f = request.files['file']
             filename = secure_filename(f.filename)
-            print(current_app.config['UPLOAD_FOLDER'])
+            print(Path(current_app.config['UPLOAD_FOLDER']).is_dir())
             f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
 
             label = get_prediction(model_type=class_type,\
