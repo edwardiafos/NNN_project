@@ -2,7 +2,9 @@ from flask import Blueprint, request, render_template, session, url_for, redirec
 from werkzeug.utils import secure_filename
 import os
 import glob
-from .model import get_prediction
+import sys
+sys.path.append(r'flaskr\model.py')
+from model import get_prediction
 from pathlib import Path
 
 

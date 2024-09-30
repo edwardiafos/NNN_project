@@ -6,6 +6,8 @@ import torch
 from torch import nn
 import torchvision
 import numpy as np
+import waitress
+import sys
 
 
 def create_app(test_config=None):
@@ -33,12 +35,15 @@ def create_app(test_config=None):
         return render_template("index.html")
     
 
-    from . import blueprints # used to be 'from . import blueprints'
-    app.register_blueprint(blueprints.prediction_bp)
-    app.register_blueprint(blueprints.upload_bp)
+    sys.path.append(r'flaskr\blueprints.py')
+    from blueprints import prediction_bp, upload_bp # used to be 'from . import blueprints'
+    app.register_blueprint(prediction_bp)
+    app.register_blueprint(upload_bp)
 
 
     return app
 
-
 app = create_app()
+
+if __name__ == "__main__":
+    waitress.serve(app, host='0.0.0.0', port=10000)
