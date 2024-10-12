@@ -9,14 +9,14 @@ html {
 h1 {
     margin: 0%;
     padding: 2%;
-    font-size:4em;
+    font-size:3em;
 }
 
 .title-caption {
     padding: 4%;
     border-top: 2px solid rgb(17, 151, 17);
     border-bottom: 2px solid rgb(17, 151, 17);
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .menu-container {
@@ -31,7 +31,7 @@ h1 {
 }
 
 p.model-menu,  a.model-menu {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 section.model-menu {
@@ -44,7 +44,7 @@ section.model-menu {
 
 .flex {
     flex: 1;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 main {
