@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import List, Union
 import json
 
-THIS_FOLDER = Path(__file__).parent.resolve() # path\to\root\folder\NNN_Project\flaskr
+THIS_FOLDER = Path(__file__).parent.resolve() # path/to/root/folder/NNN_Project/flaskr
 
 
 def model_and_transforms(model_type: str):
@@ -20,12 +20,12 @@ def model_and_transforms(model_type: str):
     
     if model_type == "flower":
         efficient_net.classifier[1] = nn.Linear(in_features=1280, out_features=14, bias=True)
-        efficient_net.load_state_dict(torch.load(rf"{THIS_FOLDER}\models\flower\flower_model.pt", map_location=device, weights_only=True))
+        efficient_net.load_state_dict(torch.load(f"{THIS_FOLDER}/models/flower/flower_model.pt", map_location=device, weights_only=True))
     
 
     elif model_type == "mushroom":
         efficient_net.classifier[1] = nn.Linear(in_features=1280, out_features=9, bias=True)
-        efficient_net.load_state_dict(torch.load(rf"{THIS_FOLDER}\models\mushroom\mushroom_model.pt", map_location=device, weights_only=True))
+        efficient_net.load_state_dict(torch.load(f"{THIS_FOLDER}/models/mushroom/mushroom_model.pt", map_location=device, weights_only=True))
     
     
     efficient_net.eval()
@@ -38,9 +38,9 @@ def get_idx_to_class(model_type: str):
     
 
     if model_type == "flower":
-        path = rf"{THIS_FOLDER}\models\flower\flower_classes_to_index.json"
+        path = f"{THIS_FOLDER}/models/flower/flower_classes_to_index.json"
     elif model_type == "mushroom":
-        path = rf"{THIS_FOLDER}\models\mushroom\mushroom_class_to_index.json"
+        path = f"{THIS_FOLDER}/models/mushroom/mushroom_class_to_index.json"
 
     with open(path, "r") as f:
         CLASS_TO_IDX = json.load(f)

@@ -8,6 +8,7 @@ import torchvision
 import numpy as np
 import waitress
 import sys
+from pathlib import Path
 
 
 def create_app(test_config=None):
@@ -34,8 +35,9 @@ def create_app(test_config=None):
     def index():
         return render_template("index.html")
     
+    THIS_FOLDER = Path(__file__).parent.resolve() # path/to/root/folder/NNN_Project/flaskr
 
-    sys.path.append(r'flaskr\blueprints.py')
+    sys.path.append(f'{THIS_FOLDER}/blueprints.py')
     from blueprints import prediction_bp, upload_bp # used to be 'from . import blueprints'
     app.register_blueprint(prediction_bp)
     app.register_blueprint(upload_bp)

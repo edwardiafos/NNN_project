@@ -3,7 +3,11 @@ from werkzeug.utils import secure_filename
 import os
 import glob
 import sys
-sys.path.append(r'flaskr\model.py')
+from pathlib import Path
+
+THIS_FOLDER = Path(__file__).parent.resolve() # path/to/root/folder/NNN_Project/flaskr
+
+sys.path.append(f'{THIS_FOLDER}/model.py')
 from model import get_prediction
 from pathlib import Path
 
