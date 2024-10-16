@@ -48,4 +48,13 @@ def index(class_type):
 
     page = class_type + ".html"
     return render_template(page, classification_type=class_type)
-    
+
+
+catalogue_bp = Blueprint(name='catalogue', 
+                         import_name=__name__,
+                         url_prefix='/catalogue')
+
+@catalogue_bp.route('/<type>', methods=('GET', ))
+def index(type):
+     webpage = f"{type}_catalogue.html"
+     return render_template(webpage)

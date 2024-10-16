@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="Nature, Environment, Cottagecore, Machine Learning, Computer Vision, Neural Networks, Deep Learning, AI">
+        <meta name="description" content="A website that provides an array of nature-themed machine learning models!">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='index.css')}}">
+        <title>Nature's Neural Networks</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Nature's Neural Networks</h1>
+            <p class="title-caption">Your one-stop shop for nature-themed machine learning models!</p>
+            <div class="menu-container">
+                <span class="model-menu" id="menu-title">
+                    <p class="model-menu">Flower Classification: 14 classes</p>
+                    <p class="model-menu">Mushroom Classification: 9 classes</p>
+                </span>
+                <span class="model-menu" id="menu">
+                    <nav>
+                        <section class="model-menu"><a class="model-menu" href="{{url_for('upload.index', class_type='flower')}}">Stop and Smell the Roses!</a></section>
+                        <section class="model-menu"><a class="model-menu" href="{{url_for('upload.index', class_type='mushroom')}}">Fun with Fungi!</a></section>
+                    </nav>
+                </span>
+            </div>
+        </header>
+
+
+        <main>
+            <div class="flex-container">
+                <span class="flex">
+                    <h3>How were these models developed?</h3>
+                </span>
+                <span class="flex">
+                    <p>Most of these models are finetuned PyTorch EfficientNet V2 Small models.<br>To see how they were trained, visit my Kaggle!</p>
+                </span>
+            </div>
+        </main>
+
+
+        <footer>
+            <div class="flex-container">
+                <span class="flex">
+                    <h3>Contact?</h3>
+                </span>
+                <span class="flex">
+                    <address class="footer">
+                        Author: Edwardia Fosah<br>
+                        Email: edwardiafos@gmail.com<br>
+                        <a class="footer" href="https://github.com/edwardiafos" target="_blank">Github</a>
+                        <a class="footer" href="https://www.kaggle.com/edwardiafosah" target="_blank">Kaggle</a>
+                    </address>
+                </span>
+            </div>
+        </footer>
+
+    </body>
+
+</html>
