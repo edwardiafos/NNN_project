@@ -11,7 +11,10 @@
     <header>
         <div class="header">
             <div class="title-div">
-                <div><img onclick="location.href = 'new_index.html';" class="logo" src="{{url_for('static', filename='nnn_brand_logo.png')}}"></div>
+                <div>
+                    {% set link = url_for('index') %}
+                    <img onclick="location.href = '{{link}}';" class="logo" src="{{url_for('static', filename='nnn_brand_logo.png')}}">
+                </div>
             </div>
             <div class="catalogue-div">
                 <button onclick="toggleCatalogueDropdown()" id="catalogue-btn" class="dropdown">Catalogue</button>
@@ -24,14 +27,16 @@
     </header>
 
     <div class="grid-container">
-        <div onclick="location.href = 'https://youtube.com';" id="flower-card" class="model-card">
+        {% set link = url_for('upload.index', class_type='flower') %}
+        <div onclick="location.href = '{{link}}';" id="flower-card" class="model-card">
             <div class="flower-container">
                 <h4><b>Smell the Roses! - Flower Classification</b></h4>
                 <p>14 classes</p>
             </div>
         </div>
 
-        <div onclick="location.href = 'https://youtube.com';" id="mushroom-card" class="model-card">
+        {% set link = url_for('upload.index', class_type='mushroom') %}
+        <div onclick="location.href = '{{link}}';" id="mushroom-card" class="model-card">
             <div class="mushroom-container">
                 <h4><b>Fun with Fungi! - Mushroom Classification</b></h4>
                 <p>9 classes</p>

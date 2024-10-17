@@ -14,7 +14,8 @@
         <div class="header">
             <div class="title-div">
                 <div>
-                    <img onclick="location.href ='new_index.html';" class="logo" src="{{url_for('static', filename='nnn_brand_logo.png')}}">
+                    {% set link = url_for('index') %}
+                    <img onclick="location.href ='{{link}}';" class="logo" src="{{url_for('static', filename='nnn_brand_logo.png')}}">
                 </div>
             </div>
             <div class="catalogue-div">
@@ -31,7 +32,8 @@
         <div class="about">
             <h1 class="tagline">Nature's Wisdom, At Your Fingertips</h1>
             <h3 class="description">Your one-stop shop for nature-themed machine learning models!</h3>
-            <button onclick="location.href = 'model_catalogue.html';" class="start-btn">Get Started</button>
+            {% set link = url_for('catalogue.index', type='model') %}
+            <button onclick="location.href = '{{link}}';" class="start-btn">Get Started</button>
         </div>
     </main>
 
