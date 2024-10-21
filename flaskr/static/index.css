@@ -46,6 +46,7 @@ header {
     min-width: 75px;
     width: 50%;
     height: auto;
+    transition: 0.3s;
 }
 
 .tagline {
@@ -102,4 +103,6 @@ header {
 
 .logo:hover {
     background-color: rgb(164, 248, 161);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
 }

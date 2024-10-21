@@ -34,16 +34,40 @@
             <div class="form">
                 <form method="POST" enctype="multipart/form-data">
                     <label for="file">{% block upload_label %}{% endblock %}</label>
-                    <input name="file" type="file" required>
+                    <input name="file" type="file" onchange="showImage(event)" accept="image/*" required>
                     <input type="submit">
+                    <div class="cut-margin">
+                        <img id="selected-image-file">
+                    </div>
                 </form>
             </div>
 
+            <div>
+                <h3>No photo? Try one of these!</h3>
+                <div>
+                    {% set class_type = classification_type %}
+                    <p>{{class_type}}</p>
+                    {% set postLink = url_for('upload.index', class_type=class_type) %}
+                    {% set redirectLink = url_for('prediction.index') %}
+                    {% for image in preset_image_names %}
+                        <span>
+                            <img onclick="sendPresetPostRequest('{{postLink}}', '{{redirectLink}}', '{{image}}')" class="preset-image" 
+                            src="{{url_for('static', filename=classification_type + '/' + image)}}">
+                        </span>
+                    {% endfor %}
+                </div>
+            </div>
+
             <div class="footer">
-                <h3>Classes:</h3>
-                {% block classes %}{% endblock %}
-                <h3><br>Dataset:</h3>
-                {% block dataset %}{% endblock %}
+                <div>
+                    <h3>Classes:</h3>
+                    {% block classes %}{% endblock %}
+                </div>
+
+                <div>
+                    <h3><br>Dataset:</h3>
+                    {% block dataset %}{% endblock %}
+                </div>
             </div>
         </main>
 

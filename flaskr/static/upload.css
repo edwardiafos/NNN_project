@@ -12,13 +12,12 @@ html.mushroom {
     background:rgb(161, 104, 30);
 }
 
-h1, div {
-    /*margin: 3%;*/
-    /*margin-bottom: 4%;*/
+main div {
+    margin: 4%;
 }
 
 .flower a {
-    color: rgb(230, 13, 201);
+    color: rgb(250, 200, 243);
 }
 
 .mushroom a {
@@ -82,8 +81,29 @@ h1, div {
     min-width: 75px;
     width: 50%;
     height: auto;
+    transition: 0.3s;
 }
 
 .logo:hover {
-    background-color: rgb(164, 248, 161);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+#selected-image-file {
+    max-height: 300px;
+}
+
+.preset-image {
+    max-width: 200px;
+    transition: 0.3s;
+    margin: 10px;
+}
+
+.preset-image:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    opacity: 0.7;
+}
+
+.cut-margin {
+    margin-top: 1%;
 }
