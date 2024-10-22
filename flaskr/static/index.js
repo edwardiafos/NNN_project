@@ -34,28 +34,3 @@ function showImage(event) {
 
     reader.readAsDataURL(selectedFile);
 }
-
-
-function sendPresetPostRequest(postLink, redirectLink, image_name) {
-    //Using Fetch API
-    fetch(postLink, {
-        method: "POST",
-        headers: {
-            "Content-Type": 'application/json'
-        },
-        body: JSON.stringify({
-            filename: image_name,
-            is_from_website_preset: true
-        })
-    })
-    .then(response => {
-        redirect = response.json()["redirect_url"];
-        location.href = redirect;
-    })
-    .catch(error => {
-        // Handle errors
-        console.error(error);
-    });
-
-    //location.href = redirectLink;
-}

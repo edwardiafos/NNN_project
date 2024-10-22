@@ -17,9 +17,9 @@ prediction_bp = Blueprint(name='prediction',
                url_prefix="/prediction")
 
 
-@prediction_bp.route('/', methods=("GET", "POST"))
-def index():
-    return render_template("prediction.html", prediction=session['label'])
+@prediction_bp.route('/<label>', methods=("GET", "POST"))
+def index(label):
+    return render_template("prediction.html", prediction=label, image_path=session['image_path'])
 
 
 upload_bp = Blueprint(name='upload',
@@ -33,24 +33,12 @@ def index(class_type):
         preset_image_names.append(image_name)
 
     if request.method == "POST":
-            #if request.content_type == "application/json":
-            #    print("HELLO")
-            #    image_path = THIS_FOLDER / "static" / class_type / request.get_json()['filename']
-            #    label = get_prediction(model_type=class_type, image_path=image_path)
-
-            #    session.clear()
-            #    session['label'] = label
-
-            #    print("please")
-            #    return jsonify(redirect_url=url_for("prediction.index"))
-
             preset = None
             for image_name in preset_image_names:
                 if image_name in request.form:
                     preset = image_name
 
             if preset:
-                print("hello")
                 image_path = THIS_FOLDER / "static" / class_type / preset
                 label = get_prediction(model_type=class_type, image_path=image_path)
 
@@ -63,13 +51,14 @@ def index(class_type):
                 filename = secure_filename(f.filename)
                 f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
 
-                label = get_prediction(model_type=class_type,\
-                                    image_path=os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+                image_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+                label = get_prediction(model_type=class_type, image_path=image_path)
 
-            session.clear()
-            session['label'] = label
+            
+            session.clear() # clear session data
+            session['image_path'] = str(image_path)
 
-            return redirect(url_for("prediction.index"))
+            return redirect(url_for("prediction.index", label=label))
 
     page = class_type + ".html"
     return render_template(page, classification_type=class_type, preset_image_names=preset_image_names)

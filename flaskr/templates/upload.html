@@ -47,7 +47,7 @@
                 <div>
                     <form method="POST">
                     {% for image in preset_image_names %}
-                        <button type="submit" name="{{image}}">
+                        <button class="preset-button" type="submit" name="{{image}}">
                             <img class="preset-image" src="{{url_for('static', filename=classification_type + '/' + image)}}">
                         </button>
                     {% endfor %}
