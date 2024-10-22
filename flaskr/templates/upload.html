@@ -45,16 +45,13 @@
             <div>
                 <h3>No photo? Try one of these!</h3>
                 <div>
-                    {% set class_type = classification_type %}
-                    <p>{{class_type}}</p>
-                    {% set postLink = url_for('upload.index', class_type=class_type) %}
-                    {% set redirectLink = url_for('prediction.index') %}
+                    <form method="POST">
                     {% for image in preset_image_names %}
-                        <span>
-                            <img onclick="sendPresetPostRequest('{{postLink}}', '{{redirectLink}}', '{{image}}')" class="preset-image" 
-                            src="{{url_for('static', filename=classification_type + '/' + image)}}">
-                        </span>
+                        <button type="submit" name="{{image}}">
+                            <img class="preset-image" src="{{url_for('static', filename=classification_type + '/' + image)}}">
+                        </button>
                     {% endfor %}
+                </form>
                 </div>
             </div>
 

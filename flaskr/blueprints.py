@@ -30,17 +30,29 @@ upload_bp = Blueprint(name='upload',
 def index(class_type):
     preset_image_names = []
     for image_name in os.listdir(THIS_FOLDER / "static" / class_type):
-         preset_image_names.append(image_name)
+        preset_image_names.append(image_name)
 
     if request.method == "POST":
-            if request.content_type == "application/json":
-                image_path = THIS_FOLDER / "static" / class_type / request.get_json()['filename']
+            #if request.content_type == "application/json":
+            #    print("HELLO")
+            #    image_path = THIS_FOLDER / "static" / class_type / request.get_json()['filename']
+            #    label = get_prediction(model_type=class_type, image_path=image_path)
+
+            #    session.clear()
+            #    session['label'] = label
+
+            #    print("please")
+            #    return jsonify(redirect_url=url_for("prediction.index"))
+
+            preset = None
+            for image_name in preset_image_names:
+                if image_name in request.form:
+                    preset = image_name
+
+            if preset:
+                print("hello")
+                image_path = THIS_FOLDER / "static" / class_type / preset
                 label = get_prediction(model_type=class_type, image_path=image_path)
-
-                session.clear()
-                session['label'] = label
-
-                return jsonify(redirect_url=url_for("prediction.index"))
 
             else:
                 files = glob.glob(f"{current_app.config['UPLOAD_FOLDER']}/*")
@@ -54,10 +66,10 @@ def index(class_type):
                 label = get_prediction(model_type=class_type,\
                                     image_path=os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
 
-                session.clear()
-                session['label'] = label
+            session.clear()
+            session['label'] = label
 
-                return redirect(url_for("prediction.index"))
+            return redirect(url_for("prediction.index"))
 
     page = class_type + ".html"
     return render_template(page, classification_type=class_type, preset_image_names=preset_image_names)
