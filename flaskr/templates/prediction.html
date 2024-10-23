@@ -26,11 +26,11 @@
         </div>
     </header>
 
-    
     <h1 class="bigger-header-font">Your prediction is...</h1>
     <h2 class="bigger-header-font">{{prediction}}!</h2>
-    {% set link = url_for('catalogue.index', type='species') %}
-    <button class="catalogue-redirect-btn" onclick="location.href = '{{link}}';">Learn more about the {{prediction}}!</button>
+    {% set query = prediction.replace(" ", "+") %}
+    {% set link = "https://www.google.com/search?q=" + query %}
+    <button class="catalogue-redirect-btn" onclick="window.open('{{link}}', '_blank');">Learn more about the {{prediction}}!</button>
 
     <script src="{{url_for('static', filename='index.js')}}" type="text/javascript"></script>
 </body>

@@ -19,7 +19,8 @@ prediction_bp = Blueprint(name='prediction',
 
 @prediction_bp.route('/<label>', methods=("GET", "POST"))
 def index(label):
-    return render_template("prediction.html", prediction=label)
+    prediction = label.replace("_", " ").lower()
+    return render_template("prediction.html", prediction=prediction)
 
 
 upload_bp = Blueprint(name='upload',
