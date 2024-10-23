@@ -106,3 +106,21 @@ header {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
 }
+
+.bigger-header-font {
+    font-size: 3em;
+}
+
+.catalogue-redirect-btn {
+    background-color: rgb(113, 173, 85);
+    color: white;
+    border: none;
+    font-size: 1.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 2%;
+    margin-top: 3%;
+}
+
+.catalogue-redirect-btn:hover {
+    background-color:rgb(83, 133, 60);
+}

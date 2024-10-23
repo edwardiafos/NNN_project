@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, session, url_for, redirect, current_app, jsonify
+from flask import Blueprint, request, render_template, session, url_for, redirect, current_app, send_from_directory
 from werkzeug.utils import secure_filename
 import os
 import glob
@@ -19,7 +19,7 @@ prediction_bp = Blueprint(name='prediction',
 
 @prediction_bp.route('/<label>', methods=("GET", "POST"))
 def index(label):
-    return render_template("prediction.html", prediction=label, image_path=session['image_path'])
+    return render_template("prediction.html", prediction=label)
 
 
 upload_bp = Blueprint(name='upload',
@@ -56,12 +56,12 @@ def index(class_type):
 
             
             session.clear() # clear session data
-            session['image_path'] = str(image_path)
 
             return redirect(url_for("prediction.index", label=label))
 
     page = class_type + ".html"
     return render_template(page, classification_type=class_type, preset_image_names=preset_image_names)
+
 
 
 catalogue_bp = Blueprint(name='catalogue', 
