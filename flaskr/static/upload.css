@@ -12,7 +12,104 @@ html.mushroom {
     background:rgb(161, 104, 30);
 }
 
-h1, div {
-    margin: 3%;
-    margin-bottom: 4%;
+main div {
+    margin: 4%;
+}
+
+.flower a {
+    color: rgb(250, 200, 243);
+}
+
+.mushroom a {
+    color:rgb(250, 145, 9)
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr;
+    grid-template-rows: 100%;
+
+}
+
+.title-div {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.catalogue-div {
+    grid-column: 8;
+    grid-row: 1;
+}
+
+#catalogue-btn {
+    height: 70%;
+    width: 100%;
+    font-size: 120%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color:rgb(113, 173, 85);
+    color:white;
+    border: none;
+}
+
+#catalogue-btn:hover, #catalogue-btn:focus {
+    background-color:rgb(83, 133, 60);
+}
+
+#catalogue-dropdown {
+    display: none;
+    position: absolute;
+    background-color: black;
+    overflow: auto;
+    min-width: 95px;
+    width: 12%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+#catalogue-dropdown a {
+    color: white;
+    padding: 10%;
+    display: block;
+}
+
+#catalogue-dropdown a:hover {
+    background-color: rgb(39, 37, 37);
+}
+
+.logo {
+    float: left;
+    min-width: 75px;
+    width: 50%;
+    height: auto;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+#selected-image-file {
+    max-height: 300px;
+}
+
+.preset-image {
+    max-width: 200px;
+    transition: 0.3s;
+    margin: 10px;
+}
+
+.preset-button {
+    padding: 0%;
+    border: none;
+    transition: 0.3s;
+}
+
+.preset-button:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    opacity: 0.7;
+}
+
+.cut-margin {
+    margin-top: 1%;
 }

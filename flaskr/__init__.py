@@ -38,9 +38,10 @@ def create_app(test_config=None):
     THIS_FOLDER = Path(__file__).parent.resolve() # path/to/root/folder/NNN_Project/flaskr
 
     sys.path.append(f'{THIS_FOLDER}/blueprints.py')
-    from blueprints import prediction_bp, upload_bp # used to be 'from . import blueprints'
+    from blueprints import prediction_bp, upload_bp, catalogue_bp # used to be 'from . import blueprints'
     app.register_blueprint(prediction_bp)
     app.register_blueprint(upload_bp)
+    app.register_blueprint(catalogue_bp)
 
 
     return app

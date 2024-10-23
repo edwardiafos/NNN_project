@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, session, url_for, redirect, current_app
+from flask import Blueprint, request, render_template, session, url_for, redirect, current_app, send_from_directory
 from werkzeug.utils import secure_filename
 import os
 import glob
@@ -17,9 +17,10 @@ prediction_bp = Blueprint(name='prediction',
                url_prefix="/prediction")
 
 
-@prediction_bp.route('/', methods=("GET", "POST"))
-def index():
-    return render_template("prediction.html", prediction=session['label'])
+@prediction_bp.route('/<label>', methods=("GET", "POST"))
+def index(label):
+    prediction = label.replace("_", " ").lower()
+    return render_template("prediction.html", prediction=prediction)
 
 
 upload_bp = Blueprint(name='upload',
@@ -28,24 +29,47 @@ upload_bp = Blueprint(name='upload',
 
 @upload_bp.route('/<class_type>', methods=("GET", "POST"))
 def index(class_type):
+    preset_image_names = []
+    for image_name in os.listdir(THIS_FOLDER / "static" / class_type):
+        preset_image_names.append(image_name)
+
     if request.method == "POST":
-            files = glob.glob(f"{current_app.config['UPLOAD_FOLDER']}/*")
-            for f in files:
-                 os.remove(f) # remove current stored images to free up space
+            preset = None
+            for image_name in preset_image_names:
+                if image_name in request.form:
+                    preset = image_name
 
-            f = request.files['file']
-            filename = secure_filename(f.filename)
-            # print(Path(current_app.config['UPLOAD_FOLDER']).is_dir())
-            f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+            if preset:
+                image_path = THIS_FOLDER / "static" / class_type / preset
+                label = get_prediction(model_type=class_type, image_path=image_path)
 
-            label = get_prediction(model_type=class_type,\
-                                   image_path=os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+            else:
+                files = glob.glob(f"{current_app.config['UPLOAD_FOLDER']}/*")
+                for f in files:
+                    os.remove(f) # remove current stored images to free up space
 
-            session.clear()
-            session['label'] = label
+                f = request.files['file']
+                filename = secure_filename(f.filename)
+                f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
 
-            return redirect(url_for("prediction.index"))
+                image_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+                label = get_prediction(model_type=class_type, image_path=image_path)
+
+            
+            session.clear() # clear session data
+
+            return redirect(url_for("prediction.index", label=label))
 
     page = class_type + ".html"
-    return render_template(page, classification_type=class_type)
-    
+    return render_template(page, classification_type=class_type, preset_image_names=preset_image_names)
+
+
+
+catalogue_bp = Blueprint(name='catalogue', 
+                         import_name=__name__,
+                         url_prefix='/catalogue')
+
+@catalogue_bp.route('/<type>', methods=('GET', ))
+def index(type):
+     webpage = f"{type}_catalogue.html"
+     return render_template(webpage)

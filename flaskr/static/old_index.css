@@ -1,0 +1,58 @@
+html {
+    background-color: rgb(21, 39, 27);
+    text-align: center;
+    color:rgb(247, 235, 235);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 4%;
+}
+
+h1 {
+    margin: 0%;
+    padding: 2%;
+    font-size:3em;
+}
+
+.title-caption {
+    padding: 4%;
+    border-top: 2px solid rgb(17, 151, 17);
+    border-bottom: 2px solid rgb(17, 151, 17);
+    font-size: 1.5em;
+}
+
+.menu-container {
+    display: flex;
+    background: black;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+.model-menu {
+    flex: 1;
+}
+
+p.model-menu,  a.model-menu {
+    font-size: 1.5em;
+}
+
+section.model-menu {
+    padding: 2%;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex {
+    flex: 1;
+    font-size: 1.5em;
+}
+
+main {
+    padding: 1%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+a {
+    color: rgb(242, 160, 160);
+}
