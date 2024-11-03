@@ -124,3 +124,17 @@ header {
 .catalogue-redirect-btn:hover {
     background-color:rgb(83, 133, 60);
 }
+
+.species-main-section a{
+    display: block;
+    color: rgb(185, 4, 4);
+    margin-top: 20px;
+}
+
+.species-header {
+    margin-bottom: 40px;
+}
+
+.species-div {
+    margin-bottom: 75px;
+}
