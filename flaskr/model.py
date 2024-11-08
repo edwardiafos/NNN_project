@@ -27,7 +27,30 @@ def model_and_transforms(model_type: str):
         efficient_net.classifier[1] = nn.Linear(in_features=1280, out_features=9, bias=True)
         efficient_net.load_state_dict(torch.load(f"{THIS_FOLDER}/models/mushroom/mushroom_model.pt", map_location=device, weights_only=True))
     
-    
+    elif model_type == "animal-90":
+        efficient_net.classifier[1] = nn.Linear(in_features=1280, out_features=90, bias=True)
+        efficient_net.load_state_dict(torch.load(f"{THIS_FOLDER}/models/animal-90/animal_90_model.pt", map_location=device, weights_only=True))
+
+    elif model_type == "butterfly-moth":
+        efficient_net.classifier[1] = nn.Linear(in_features=1280, out_features=100, bias=True)
+        efficient_net.load_state_dict(torch.load(f"{THIS_FOLDER}/models/butterfly-moth/butterfly_moth_model.pt", map_location=device, weights_only=True))
+
+    elif model_type == "gemstone":
+        efficient_net.classifier[1] = nn.Linear(in_features=1280, out_features=40, bias=True)
+        efficient_net.load_state_dict(torch.load(f"{THIS_FOLDER}/models/gemstone/gemstone_model.pt", map_location=device, weights_only=True))
+
+    elif model_type == "indian-bird":
+        efficient_net.classifier[1] = nn.Linear(in_features=1280, out_features=25, bias=True)
+        efficient_net.load_state_dict(torch.load(f"{THIS_FOLDER}/models/indian-bird/indian_bird_model.pt", map_location=device, weights_only=True))
+
+    elif model_type == "sea-animal":
+        efficient_net.classifier[1] = nn.Linear(in_features=1280, out_features=23, bias=True)
+        efficient_net.load_state_dict(torch.load(f"{THIS_FOLDER}/models/sea-animal/sea_animal_model.pt", map_location=device, weights_only=True))
+
+    elif model_type == "snake":
+        efficient_net.classifier[1] = nn.Linear(in_features=1280, out_features=40, bias=True)
+        efficient_net.load_state_dict(torch.load(f"{THIS_FOLDER}/models/snake/snake_model.pt", map_location=device, weights_only=True))
+
     efficient_net.eval()
 
     return efficient_net, transforms
@@ -41,6 +64,18 @@ def get_idx_to_class(model_type: str):
         path = f"{THIS_FOLDER}/models/flower/flower_classes_to_index.json"
     elif model_type == "mushroom":
         path = f"{THIS_FOLDER}/models/mushroom/mushroom_class_to_index.json"
+    elif model_type == "animal-90":
+        path = f"{THIS_FOLDER}/models/animal-90/animal_90_class_to_index.json"
+    elif model_type == "butterfly-moth":
+        path = f"{THIS_FOLDER}/models/butterfly-moth/butterfly_moth_class_to_index.json"
+    elif model_type == "gemstone":
+        path = f"{THIS_FOLDER}/models/gemstone/gemstone_class_to_index.json"
+    elif model_type == "indian-bird":
+        path = f"{THIS_FOLDER}/models/indian-bird/indian_bird_class_to_index.json"
+    elif model_type == "sea-animal":
+        path = f"{THIS_FOLDER}/models/sea-animal/sea_animal_class_to_index.json"
+    elif model_type == "snake":
+        path = f"{THIS_FOLDER}/models/snake/snake_class_to_index.json"
 
     with open(path, "r") as f:
         CLASS_TO_IDX = json.load(f)
