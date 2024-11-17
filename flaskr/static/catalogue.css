@@ -21,7 +21,7 @@ html {
 #flower-card {
     grid-column: 1;
     grid-row: 1;
-    background-color: rgb(236, 91, 91);
+    background-color: rgb(230, 125, 125);
 }
 
 #flower-card:hover {
@@ -38,8 +38,68 @@ html {
     background-color: rgb(105, 30, 30);
 }
 
+#animal-90-card {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: rgb(221, 174, 86);
+}
+
+#animal-90-card:hover {
+    background-color: rgb(255, 166, 0);
+}
+
+#butterfly-moth-card {
+    grid-column: 2;
+    grid-row: 2;
+    background-color: rgb(216, 94, 206);
+}
+
+#butterfly-moth-card:hover {
+    background-color: rgb(255, 0, 234);
+}
+
+#gemstone-card {
+    grid-column: 1;
+    grid-row: 3;
+    background-color: rgb(164, 95, 209);
+}
+
+#gemstone-card:hover {
+    background-color: rgb(149, 5, 245);
+}
+
+#indian-bird-card {
+    grid-column: 2;
+    grid-row: 3;
+    background-color: rgb(81, 83, 192);
+}
+
+#indian-bird-card:hover {
+    background-color: rgb(0, 4, 255);
+}
+
+#sea-animal-card {
+    grid-column: 1;
+    grid-row: 4;
+    background-color: rgb(104, 223, 231);
+}
+
+#sea-animal-card:hover {
+    background-color: rgb(0, 225, 241);
+}
+
+#snake-card {
+    grid-column: 2;
+    grid-row: 4;
+    background-color: rgb(44, 206, 71);
+}
+
+#snake-card:hover {
+    background-color: rgb(18, 231, 53);
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 30px;
 }
