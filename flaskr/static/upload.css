@@ -24,6 +24,18 @@ html.gemstone {
     background-color: rgb(135, 62, 202);
 }
 
+html.indian-bird {
+    background-color: rgb(64, 64, 188);
+}
+
+html.sea-animal {
+    background-color: rgb(32, 148, 180);
+}
+
+html.snake {
+    background-color: rgb(35, 130, 50);
+}
+
 main div {
     margin: 4%;
 }
@@ -46,6 +58,18 @@ main div {
 
 .gemstone a {
     color:rgb(208, 168, 247)
+}
+
+.indian-bird a {
+    color:rgb(190, 190, 245);
+}
+
+.sea-animal a {
+    color: rgb(216, 239, 247);
+}
+
+.snake a {
+    color: rgb(111, 249, 111);
 }
 
 .header {

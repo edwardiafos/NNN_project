@@ -81,7 +81,7 @@ html {
 #sea-animal-card {
     grid-column: 1;
     grid-row: 4;
-    background-color: rgb(104, 223, 231);
+    background-color: rgb(82, 211, 220);
 }
 
 #sea-animal-card:hover {
