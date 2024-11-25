@@ -42,7 +42,55 @@
                 <p>9 classes</p>
             </div>
         </div>
-        
+
+        {% set link = url_for('upload.index', class_type='animal-90') %}
+        <div onclick="location.href = '{{link}}';" id="animal-90-card" class="model-card">
+            <div class="animal-90-container">
+                <h4><b>King of the Jungle! - Animal Classification</b></h4>
+                <p>90 classes</p>
+            </div>
+        </div>
+
+        {% set link = url_for('upload.index', class_type='butterfly-moth') %}
+        <div onclick="location.href = '{{link}}';" id="butterfly-moth-card" class="model-card">
+            <div class="butterfly-moth-container">
+                <h4><b>Flutter Flutter! - Butterfly/Moth Classification</b></h4>
+                <p>100 classes</p>
+            </div>
+        </div>
+
+        {% set link = url_for('upload.index', class_type='gemstone') %}
+        <div onclick="location.href = '{{link}}';" id="gemstone-card" class="model-card">
+            <div class="gemstone-container">
+                <h4><b>Shine Bright Like A Diamond! - Gemstone Classification</b></h4>
+                <p>40 classes</p>
+            </div>
+        </div>
+
+        {% set link = url_for('upload.index', class_type='indian-bird') %}
+        <div onclick="location.href = '{{link}}';" id="indian-bird-card" class="model-card">
+            <div class="indian-bird-container">
+                <h4><b>Spread Your Wings! - Indian Bird Classification</b></h4>
+                <p>25 classes</p>
+            </div>
+        </div>
+
+        {% set link = url_for('upload.index', class_type='sea-animal') %}
+        <div onclick="location.href = '{{link}}';" id="sea-animal-card" class="model-card">
+            <div class="sea-animal-container">
+                <h4><b>Under The Sea! - Sea Animal Classification</b></h4>
+                <p>23 classes</p>
+            </div>
+        </div>
+
+        {% set link = url_for('upload.index', class_type='snake') %}
+        <div onclick="location.href = '{{link}}';" id="snake-card" class="model-card">
+            <div class="snake-container">
+                <h4><b>Slithering Serpents! - Snake Classification</b></h4>
+                <p>40 classes</p>
+            </div>
+        </div>
+
     </div>
     <script src="{{url_for('static', filename='index.js')}}" type="text/javascript"></script>
 </body>

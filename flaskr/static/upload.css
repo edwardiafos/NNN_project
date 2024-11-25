@@ -5,11 +5,35 @@ html {
 }
 
 html.flower {
-    background:rgb(233, 128, 145);
+    background:rgb(218, 52, 80);
 }
 
 html.mushroom {
     background:rgb(161, 104, 30);
+}
+
+html.animal-90 {
+    background-color: rgb(214, 143, 11);;
+}
+
+html.butterfly-moth {
+    background-color: rgb(231, 120, 222);
+}
+
+html.gemstone {
+    background-color: rgb(135, 62, 202);
+}
+
+html.indian-bird {
+    background-color: rgb(64, 64, 188);
+}
+
+html.sea-animal {
+    background-color: rgb(32, 148, 180);
+}
+
+html.snake {
+    background-color: rgb(35, 130, 50);
 }
 
 main div {
@@ -17,11 +41,35 @@ main div {
 }
 
 .flower a {
-    color: rgb(250, 200, 243);
+    color: rgb(245, 218, 241);
 }
 
 .mushroom a {
     color:rgb(250, 145, 9)
+}
+
+.animal-90 a {
+    color: rgb(247, 218, 181);
+}
+
+.butterfly-moth a {
+    color:rgb(247, 216, 233)
+}
+
+.gemstone a {
+    color:rgb(208, 168, 247)
+}
+
+.indian-bird a {
+    color:rgb(190, 190, 245);
+}
+
+.sea-animal a {
+    color: rgb(216, 239, 247);
+}
+
+.snake a {
+    color: rgb(111, 249, 111);
 }
 
 .header {
